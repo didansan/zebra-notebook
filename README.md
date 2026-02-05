@@ -1,6 +1,6 @@
-# Inertia Rails React Starter Kit
+# Zebra Notebook
 
-A modern full-stack starter application with Rails backend and React frontend using Inertia.js based on the [Laravel Starter Kit](https://github.com/laravel/react-starter-kit).
+A modern full-stack Notebok application with Rails backend and React frontend using Inertia.js based on the [Laravel Starter Kit](https://github.com/inertia-rails/react-starter-kit).
 
 ## Features
 
@@ -10,22 +10,28 @@ A modern full-stack starter application with Rails backend and React frontend us
 - [Kamal](https://kamal-deploy.org/) for deployment
 - Optional SSR support
 
-See also:
-- [Svelte Starter Kit](https://github.com/inertia-rails/svelte-starter-kit) for Inertia Rails with Svelte
-- [Vue Starter Kit](https://github.com/inertia-rails/vue-starter-kit) for Inertia Rails with Vue
-
-<a href="https://evilmartians.com/?utm_source=inertia-rails-react-starter-kit&utm_campaign=project_page">
-<img src="https://evilmartians.com/badges/sponsored-by-evil-martians.svg" alt="Built by Evil Martians" width="236" height="54">
-</a>
-
-## Setup
-
+## Setup (Mac)
 1. Clone this repository
-2. Setup dependencies & run the server:
+2. Install rvm (development version) and ruby
+   ```bash
+   gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+   curl -sSL https://get.rvm.io | bash
+   rvm autolibs disable
+   rvm install 4.0.1 --with-openssl-dir=`brew --prefix openssl`
+   ```
+2. Install gems
+   ```bash
+   gem update
+   gem install bundler
+   gem install nokogiri
+   gem install rails
+   bundle install
+   ```
+3. Setup dependencies & run the server:
    ```bash
    bin/setup
    ```
-3. Open http://localhost:3000
+4. Open http://localhost:3000
 
 ## Enabling SSR
 
