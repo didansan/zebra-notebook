@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
 
@@ -21,7 +23,12 @@ class ApplicationController < ActionController::Base
   end
 
   def perform_authentication
-    Current.session ||= Session.find_by_id(cookies.signed[:session_token])
+    token = cookies.signed[:session_token]
+    return nil if token.blank?
+
+    Current.session ||= Session.find_by_id(token)
+    cookies.delete(:session_token) unless Current.session
+    Current.session
   end
 
   def set_current_request_details
